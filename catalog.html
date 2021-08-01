@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>catalog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Nunito, sans-serif;
+            font-weight: 300;
+            background: #f4f6f9
+        }
+
+        ul {
+            list-style: none
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh
+        }
+
+        .conteiner {
+            max-width: 1326px;
+            padding: 0 15px;
+            margin: 0 auto
+        }
+
+        .box-title {
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 33px;
+            letter-spacing: .02em;
+            text-align: left;
+            color: #020303
+        }
+
+        .header {
+            background: #2f80ed
+        }
+
+        .header__wrapp,
+        .header__wrapp-box,
+        .header__wrapp-inner,
+        .menu__list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .header__inner-link::before {
+            content: url('images/header__img-2.svg');
+            position: relative;
+            top: 4px
+        }
+
+        .header__box-link,
+        .header__inner-link,
+        .menu__list-link {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: .02em;
+            color: #fff;
+            padding: 12px 20px
+        }
+
+        .menu__list-item:nth-last-child(1) .menu__list-link {
+            background: #c63a22;
+            padding-top: 16px;
+            padding-bottom: 16px
+        }
+
+        .menu__list-item:nth-last-child(1) .menu__list-link::before {
+            content: url('images/header__img.svg')
+        }
+
+        .header__box-title {
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: .02em;
+            color: #fff
+        }
+
+        .menu__burger {
+            position: relative;
+            top: 50%;
+            background: #2f80ed;
+            padding: 18px 16px;
+            border-radius: 5px;
+            display: none
+        }
+
+        .menu__burger::after,
+        .menu__burger::before {
+            content: '';
+            background-color: #fff;
+            position: absolute;
+            width: 13px;
+            height: 2px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .menu__burger::before {
+            top: 22px
+        }
+
+        .menu__burger::after {
+            bottom: 20px
+        }
+
+        .menu__burger-line {
+            background-color: #fff;
+            position: absolute;
+            width: 13px;
+            height: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 50%
+        }
+
+        @media (max-width:1160px) {
+
+            .header__box-link,
+            .header__inner-link,
+            .menu__list-link {
+                padding: 12px 10px
+            }
+        }
+
+        @media (max-width:1040px) {
+            .header__wrapp {
+                position: relative
+            }
+
+            .menu__burger {
+                display: block
+            }
+
+            .menu {
+                width: 500px;
+                position: absolute;
+                top: 46px;
+                left: 0;
+                z-index: 234;
+                background: #2f80ed;
+                transform: translateX(-300%)
+            }
+
+            .menu__list {
+                display: block;
+                padding: 15px 20px
+            }
+
+            .menu__list-item {
+                padding-bottom: 40px
+            }
+
+            .menu__list-link {
+                display: block
+            }
+
+            .menu__list-item:nth-last-child(1) .menu__list-link {
+                display: inline-block
+            }
+        }
+
+        @media (max-width:600px) {
+            .header__box-title {
+                display: none
+            }
+
+            .menu {
+                width: 100%
+            }
+        }
+
+        .main {
+            padding-top: 17px;
+            background: #fff
+        }
+
+        .main__box {
+            overflow-x: auto
+        }
+
+        .main__box-conteiner {
+            min-width: 1040px;
+            display: flex
+        }
+
+        .main__wrapp-inner {
+            width: 1067px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .main__wrapp {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px
+        }
+
+        .main__form-input {
+            width: 100%;
+            padding: 13px 55px 13px 28px;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 22px;
+            color: #000;
+            border: 3px solid #ededed;
+            border-radius: 30px;
+            outline: 0
+        }
+
+        .main__form {
+            width: 100%;
+            position: relative;
+            margin-right: 30px
+        }
+
+        .main__form-btn {
+            background: rgba(255, 255, 255, 0);
+            border: none;
+            outline: 0;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%)
+        }
+
+        .main__wrapp-basket {
+            width: 210px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .main__basket-inner {
+            display: inline-block;
+            position: relative;
+            margin-right: 25px;
+            border-radius: 50%;
+            border: 3px solid #e0e0e0
+        }
+
+        .main__basket-img {
+            padding: 18px 20px
+        }
+
+        .main__basket-text {
+            display: inline-block;
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 22px;
+            color: #020303;
+            padding: 7px;
+            border-radius: 50%;
+            background: #8cc01e;
+            position: absolute;
+            top: -7px;
+            right: -14px
+        }
+
+        .main__item-title {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: .02em;
+            color: #333
+        }
+
+        .main__item-text {
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 22px;
+            color: #333
+        }
+
+        .main__box-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 11px 25px;
+            background: #fff;
+            border: 1px solid #ededed
+        }
+
+        .main__box-text {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: .02em;
+            color: #020303
+        }
+
+        .main__basket-item {
+            width: 80px;
+            margin-right: 24px
+        }
+
+        @media (max-width:1040px) {
+            .header__inner-link {
+                position: absolute;
+                left: 30px;
+                z-index: 23434
+            }
+        }
+
+        @media (max-width:900px) {
+            .main__basket-inner {
+                margin-right: 0
+            }
+
+            .main__wrapp-inner {
+                flex-direction: column;
+                align-items: baseline;
+                padding-top: 15px
+            }
+
+            .logo {
+                padding-bottom: 34px
+            }
+
+            .main__wrapp-basket {
+                position: absolute;
+                right: 0;
+                top: 70px
+            }
+
+            .main__wrapp {
+                padding-bottom: 29px
+            }
+        }
+
+        @media (max-width:600px) {
+            .main {
+                background: rgba(255, 255, 255, 0)
+            }
+        }
+
+        @media (max-width:480px) {
+            .main__basket-inner {
+                border: none
+            }
+
+            .menu {
+                width: 100%
+            }
+
+            .main__wrapp-basket {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center
+            }
+
+            .main__item-title {
+                display: none
+            }
+
+            .main__basket-item {
+                margin: 0
+            }
+
+            .main__basket-img {
+                padding: 4px
+            }
+
+            .main__basket-text {
+                top: -13px;
+                right: -33px
+            }
+
+            .logo-img {
+                max-width: 157px
+            }
+
+            .main__form {
+                padding-left: 60px;
+                margin-right: 0;
+                overflow: hidden
+            }
+
+            .menu__burger {
+                position: absolute;
+                top: 112px;
+                z-index: 2342
+            }
+
+            .header__box-link {
+                position: absolute;
+                left: -10px;
+                top: 50px;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 22px;
+                color: #125dc2
+            }
+
+            .main__form-input {
+                margin: 0
+            }
+
+            .main__wrapp-basket {
+                width: 123px
+            }
+
+            .header__inner-link {
+                position: absolute;
+                top: 459px;
+                z-index: 23434
+            }
+
+            .logo {
+                position: relative;
+                top: -10px
+            }
+
+            .main__wrapp-basket {
+                top: 20px
+            }
+
+            .header__inner-link {
+                position: relative;
+                top: -10px;
+                left: 0;
+                margin-bottom: 40px
+            }
+
+            .menu {
+                position: relative
+            }
+
+            .header__wrapp-inner {
+                width: 110%;
+                position: absolute;
+                left: -15px;
+                top: -49px;
+                padding: 30px 0;
+                transform: translateX(-300%);
+                z-index: 2423;
+                flex-direction: column-reverse;
+                padding: 0;
+                overflow: auto;
+                height: 110vh;
+                background: #2f80ed
+            }
+
+            .menu__list {
+                display: flex;
+                flex-direction: column;
+                padding: 30px 0
+            }
+
+            .main__box {
+                display: none
+            }
+        }
+
+        .bread {
+            padding: 30px 0
+        }
+
+        ul.breadcrumb {
+            list-style: none;
+            background-color: rgba(255, 255, 255, 0)
+        }
+
+        ul.breadcrumb li {
+            display: inline;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 22px;
+            color: #2f80ed
+        }
+
+        ul.breadcrumb li+li:before {
+            color: #2f80ed;
+            content: "/\00a0"
+        }
+
+        ul.breadcrumb li a {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 22px;
+            color: #2f80ed
+        }
+
+        @media (max-width:500px) {
+            .bread {
+                display: none
+            }
+        }
+
+        .catalog {
+            padding-bottom: 34px
+        }
+
+        .catalog__box {
+            padding-bottom: 20px
+        }
+
+        .catalog__wrapp-box {
+            display: flex;
+            padding-bottom: 43px
+        }
+
+        .catalog__wrapp-inner {
+            padding: 30px 24px
+        }
+
+        .catalog__inner-title {
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 25px;
+            letter-spacing: .02em;
+            color: #2f80ed;
+            padding-bottom: 18px
+        }
+
+        .catalog__list {
+            list-style: disc;
+            color: #2f80ed;
+            display: flex;
+            flex-wrap: wrap;
+            list-style-position: inside
+        }
+
+        .catalog__list-inner {
+            padding-right: 22px
+        }
+
+        .catalog__list-link {
+            font-family: Montserrat, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            text-decoration-line: underline;
+            color: #2f80ed;
+            position: relative;
+            left: -10px
+        }
+
+        .catalog__list-link-span {
+            display: none
+        }
+
+        @media (max-width:700px) {
+            .catalog__wrapp-box {
+                flex-direction: column;
+                position: relative
+            }
+
+            .catalog__inner-title {
+                position: absolute;
+                top: -42px;
+                left: 0
+            }
+
+            .catalog__box {
+                padding-bottom: 70px
+            }
+
+            .catalog__list-link-span {
+                display: inline-block;
+                text-decoration: underline
+            }
+
+            .catalog__list-inner {
+                padding-right: 0
+            }
+
+            .catalog__wrapp-inner {
+                padding: 30px 0
+            }
+
+            .catalog__list-link {
+                font-size: 12px
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/uncritical.css" media="print" onload="this.media='all'">
+</head>
+
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="conteiner">
+                <div class="header__wrapp">
+                    <div class="menu__burger">
+                        <span class='menu__burger-line'></span>
+                    </div>
+                    <div class="header__wrapp-inner header__inner">
+
+                        <a class="header__inner-link" href="#">
+                            Каталог
+                        </a>
+                        <nav class="menu">
+                            <ul class="menu__list">
+                                <li class="menu__list-item">
+                                    <a class="menu__list-link" href="#">
+                                        О нас
+                                    </a>
+                                </li>
+                                <li class="menu__list-item">
+                                    <a class="menu__list-link" href="#">
+                                        Доставка и оплата
+                                    </a>
+                                </li>
+                                <li class="menu__list-item">
+                                    <a class="menu__list-link" href="#">
+                                        Партнерам
+                                    </a>
+                                </li>
+                                <li class="menu__list-item">
+                                    <a class="menu__list-link" href="#">
+                                        Контакты
+                                    </a>
+                                </li>
+                                <li class="menu__list-item">
+                                    <a class="menu__list-link" href="#">
+                                        Акции
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header__wrapp-box header__box">
+                        <h3 class="header__box-title">
+                            Заказы по телефону:
+                        </h3>
+                        <a class="header__box-link" href="tel:89180000000">
+                            8(918)000-00-00
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="conteiner">
+                <div class="main__wrapp">
+                    <div class="main__wrapp-inner">
+                        <div class="logo">
+                            <a href="#" class="logo__link">
+                                <img loading='lazy' class="logo-img" src="images/logo.svg" alt="">
+                            </a>
+                        </div>
+                        <form class='main__wrapp-form main__form' action="/" method="get">
+                            <input class='main__form-input' name="s" placeholder="Найти товар" type="search">
+                            <button class='main__form-btn' type="submit">
+                                <img loading='lazy' src="images/search.svg" alt="">
+                            </button>
+                        </form>
+                    </div>
+                    <div class="main__wrapp-basket main__basket">
+                        <div class="main__basket-inner">
+                            <img loading='lazy' class='main__basket-img' src="images/bytesize_cart.svg" alt="">
+                            <span class='main__basket-text'>
+                                153
+                            </span>
+                        </div>
+                        <div class="main__basket-item main__item">
+                            <h3 class="main__item-title">
+                                Корзина
+                            </h3>
+                            <p class="main__item-text">
+                                52 325 руб.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="main__box ">
+                    <div class="main__box-conteiner ">
+                        <a class="main__box-link " href="#">
+                            <img loading='lazy' src="images/meat.png" alt="">
+                            <h3 class="main__box-text">
+                                Мясо
+                            </h3>
+                        </a>
+                        <a class="main__box-link" href="#">
+                            <img loading='lazy' src="images/seafood.png" alt="">
+                            <h3 class="main__box-text">
+                                Морепродукты
+                            </h3>
+                        </a>
+                        <a class="main__box-link" href="#">
+                            <img loading='lazy' src="images/img__main.png" alt="">
+                            <h3 class="main__box-text">
+                                Все для курения
+                            </h3>
+                        </a>
+                        <a class="main__box-link" href="#">
+                            <img loading='lazy' src="images/img__main-2.png" alt="">
+                            <h3 class="main__box-text">
+                                Напитки
+                            </h3>
+                        </a>
+                        <a class="main__box-link" href="#">
+                            <img loading='lazy' src="images/img__main-3.png" alt="">
+                            <h3 class="main__box-text">
+                                Бакалея
+                            </h3>
+                        </a>
+                        <a class="main__box-link" href="#">
+                            <img loading='lazy' src="images/img__main-4.png" alt="">
+                            <h3 class="main__box-text">
+                                Снеки
+                            </h3>
+                        </a>
+                        <a class="main__box-link" href="#">
+                            <img loading='lazy' src="images/img__main-5.png" alt="">
+                            <h3 class="main__box-text">
+                                Специи и орехи
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="bread">
+            <div class="conteiner">
+                <ul class="breadcrumb">
+                    <li><a href="#">Главная</a></li>
+                    <li>Каталог</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="catalog">
+            <div class="conteiner">
+                <div class="box catalog__box">
+                    <h3 class="box-title">
+                        Каталог
+                    </h3>
+                </div>
+                <div class="catalog__wrapp">
+                    <div class="catalog__wrapp-box">
+                        <img loading='lazy' src="images/catalog.png" alt="" class="catalog__wrapp-img">
+                        <div class="catalog__wrapp-inner">
+                            <h3 class="catalog__inner-title">
+                                Мясная продукция
+                            </h3>
+                            <ul class="catalog__list">
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт второй <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт третий <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт четвертый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт пятый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт шестой <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="catalog__wrapp-box">
+                        <img loading='lazy' src="images/catalog.png" alt="" class="catalog__wrapp-img">
+                        <div class="catalog__wrapp-inner">
+                            <h3 class="catalog__inner-title">
+                                Морепродукты
+                            </h3>
+                            <ul class="catalog__list">
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый<span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт второй<span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт третий <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт четвертый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт пятый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт шестой <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="catalog__wrapp-box">
+                        <img loading='lazy' src="images/catalog.png" alt="" class="catalog__wrapp-img">
+                        <div class="catalog__wrapp-inner">
+                            <h3 class="catalog__inner-title">
+                                Бакалея
+                            </h3>
+                            <ul class="catalog__list">
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт второй <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт третий <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт четвертый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт пятый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт шестой <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="catalog__wrapp-box">
+                        <img loading='lazy' src="images/catalog.png" alt="" class="catalog__wrapp-img">
+                        <div class="catalog__wrapp-inner">
+                            <h3 class="catalog__inner-title">
+                                Напитки
+                            </h3>
+                            <ul class="catalog__list">
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт второй <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт третий <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт четвертый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт пятый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт шестой <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="catalog__wrapp-box">
+                        <img loading='lazy' src="images/catalog.png" alt="" class="catalog__wrapp-img">
+                        <div class="catalog__wrapp-inner">
+                            <h3 class="catalog__inner-title">
+                                Снэки
+                            </h3>
+                            <ul class="catalog__list">
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт второй <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт третий <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт четвертый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт пятый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт шестой <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="catalog__wrapp-box">
+                        <img loading='lazy' src="images/catalog.png" alt="" class="catalog__wrapp-img">
+                        <div class="catalog__wrapp-inner">
+                            <h3 class="catalog__inner-title">
+                                Орехи
+                            </h3>
+                            <ul class="catalog__list">
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт второй <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт третий <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт четвертый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт пятый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт шестой <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="catalog__wrapp-box">
+                        <img loading='lazy' src="images/catalog.png" alt="" class="catalog__wrapp-img">
+                        <div class="catalog__wrapp-inner">
+                            <h3 class="catalog__inner-title">
+                                Специи
+                            </h3>
+                            <ul class="catalog__list">
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт второй <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт третий <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт четвертый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт пятый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт шестой <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="catalog__wrapp-box">
+                        <img loading='lazy' src="images/catalog.png" alt="" class="catalog__wrapp-img">
+                        <div class="catalog__wrapp-inner">
+                            <h3 class="catalog__inner-title">
+                                Табачные изделия
+                            </h3>
+                            <ul class="catalog__list">
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт второй <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт третий <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт четвертый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт пятый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт шестой <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="catalog__list-inner">
+                                    <a href="#" class="catalog__list-link">
+                                        Пункт первый <span class='catalog__list-link-span'>
+                                            с длинным названием
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="map">
+            <script async
+                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A009e8b0f4d467358c829d2e016d57016754251bd3907f41a2818d1c448f9dcbc&amp;width=100%25&amp;max-height=610&amp;lang=ru_RU&amp;scroll=false">
+            </script>
+        </div>
+
+        <footer class="footer">
+            <div class="conteiner">
+                <div class="footer__wrapp">
+                    <div class="footer__wrapp-inner">
+                        <div class="footer__logo">
+                            <a href="#" class="footer__logo-link">
+                                <img loading='lazy' class="footer__logo-img" src="images/footer-logo.svg" alt="">
+                            </a>
+                        </div>
+                        <p class="footer__wrapp-inner-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi lacinia amet nulla nibh ultrices
+                            habitant. Sit sed morbi faucibus eget. At facilisis malesuada pharetra malesuada. Quam
+                            purus, senectus volutpat, diam sem arcu, nunc orci
+                        </p>
+                    </div>
+                    <div class="footer__wrapp-box footer__box">
+                        <nav class="footer__nav">
+                            <ul class="footer__nav-list">
+                                <li class="footer__nav-inner">
+                                    <a href="#" class="footer__nav-link">
+                                        Каталог
+                                    </a>
+                                </li>
+                                <li class="footer__nav-inner">
+                                    <a href="#" class="footer__nav-link">
+                                        Акции
+                                    </a>
+                                </li>
+                                <li class="footer__nav-inner">
+                                    <a href="#" class="footer__nav-link">
+                                        Контакты
+                                    </a>
+                                </li>
+                                <li class="footer__nav-inner">
+                                    <a href="#" class="footer__nav-link">
+                                        О нас
+                                    </a>
+                                </li>
+                                <li class="footer__nav-inner">
+                                    <a href="#" class="footer__nav-link">
+                                        Доставка и оплата
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="footer__box-inner footer__inner">
+                            <div class="footer__inner-box">
+                                <h3 class="footer__inner-title">
+                                    Адреса:
+                                </h3>
+                                <div class="footer__box-conteiner">
+                                    <p class="footer__box-text">
+                                        Восточно-кругликовская 42/3 к1
+                                    </p>
+                                    <p class="footer__box-text">
+                                        Восточно-кругликовская 46/11
+                                    </p>
+                                    <p class="footer__box-text">
+                                        Восточно-кругликовская 48Г
+                                    </p>
+                                    <p class="footer__box-text">
+                                        2я Ямайская 4А
+                                    </p>
+                                    <p class="footer__box-text">
+                                        Карякина 10
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="footer__inner-box">
+                                <h3 class="footer__inner-title">
+                                    Телефоны:
+                                </h3>
+                                <div class="footer__box-conteiner">
+                                    <a class="footer__box-link" href="tel:89180000000">
+                                        8(918) 000-00-00
+                                    </a>
+                                    <a class="footer__box-link" href="tel:89180000000">
+                                        8(918) 000-00-00
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="footer__inner-box">
+                                <h3 class="footer__inner-title">
+                                    E-mail:
+                                </h3>
+                                <div class="footer__box-conteiner">
+                                    <a class="footer__box-link" href="mailto:Example@mail.ru">
+                                        Example@mail.ru
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <noscript>
+        <link rel="stylesheet" href="css/uncritical.css"></noscript>
+
+</body>
+
+</html>
