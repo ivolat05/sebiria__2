@@ -16,4 +16,8 @@ $(function () {
         slidesToShow: 6,
         slidesToScroll: 1
     });
+
+    document.addEventListener('touchstart', onTouchStart, {
+        passive: true
+    });
 });
