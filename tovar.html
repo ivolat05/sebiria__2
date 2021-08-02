@@ -72,8 +72,8 @@
 
         .menu__list-item:nth-last-child(1) .menu__list-link {
             background: #c63a22;
-            padding-top: 16px;
-            padding-bottom: 16px
+            padding-top: 18px;
+            padding-bottom: 18px
         }
 
         .menu__list-item:nth-last-child(1) .menu__list-link::before {
@@ -126,10 +126,6 @@
             left: 50%;
             transform: translateX(-50%);
             top: 50%
-        }
-
-        .header__box-title-two {
-            display: none
         }
 
         @media (max-width:1160px) {
@@ -185,16 +181,6 @@
 
             .menu {
                 width: 100%
-            }
-
-            .header__box-title-two {
-                display: block
-            }
-        }
-
-        @media (max-width:512px) {
-            .header__box-title-two {
-                display: none
             }
         }
 
@@ -455,13 +441,14 @@
 
             .header__inner-link {
                 position: relative;
-                top: -10px;
-                left: 0;
-                margin-bottom: 40px
+                top: 100px;
+                display: block;
+                margin: 0 auto;
+                width: 175px
             }
 
             .menu {
-                position: relative
+                top: 120px
             }
 
             .header__wrapp-inner {
@@ -470,9 +457,10 @@
                 left: -15px;
                 top: -49px;
                 padding: 30px 0;
+                display: inline-block;
                 transform: translateX(-300%);
                 z-index: 2423;
-                flex-direction: column-reverse;
+                display: block;
                 padding: 0;
                 overflow: auto;
                 height: 110vh;
@@ -482,7 +470,7 @@
             .menu__list {
                 display: flex;
                 flex-direction: column;
-                padding: 30px 0
+                padding: 60px 0
             }
 
             .main__box {
@@ -726,7 +714,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="css/uncritical.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/uncritical.css" media="print" onload="this.media='all'">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -741,35 +729,35 @@
                     <div class="menu__burger">
                         <span class='menu__burger-line'></span>
                     </div>
-                    <div class="header__wrapp-inner ">
+                    <div class="header__wrapp-inner header__inner">
 
-                        <a class="header__inner-link" href="#">
+                        <a class="header__inner-link" href="catalog.html">
                             Каталог
                         </a>
                         <nav class="menu">
                             <ul class="menu__list">
                                 <li class="menu__list-item">
-                                    <a class="menu__list-link" href="#">
+                                    <a class="menu__list-link" href="about.html">
                                         О нас
                                     </a>
                                 </li>
                                 <li class="menu__list-item">
-                                    <a class="menu__list-link" href="#">
+                                    <a class="menu__list-link" href="delivery.html">
                                         Доставка и оплата
                                     </a>
                                 </li>
                                 <li class="menu__list-item">
-                                    <a class="menu__list-link" href="#">
+                                    <a class="menu__list-link" href="partners.html">
                                         Партнерам
                                     </a>
                                 </li>
                                 <li class="menu__list-item">
-                                    <a class="menu__list-link" href="#">
+                                    <a class="menu__list-link" href="contacts.html">
                                         Контакты
                                     </a>
                                 </li>
                                 <li class="menu__list-item">
-                                    <a class="menu__list-link" href="#">
+                                    <a class="menu__list-link" href="sales.html">
                                         Акции
                                     </a>
                                 </li>
@@ -779,9 +767,6 @@
                     <div class="header__wrapp-box header__box">
                         <h3 class="header__box-title">
                             Заказы по телефону:
-                        </h3>
-                        <h3 class="header__box-title header__box-title-two">
-                            tel:
                         </h3>
                         <a class="header__box-link" href="tel:89180000000">
                             8(918)000-00-00
@@ -795,18 +780,18 @@
                 <div class="main__wrapp">
                     <div class="main__wrapp-inner">
                         <div class="logo">
-                            <a href="#" class="logo__link">
-                                <img loading='lazy' class="logo-img" src="images/logo.svg" alt="">
+                            <a href="main.html" class="logo__link">
+                                <img class="logo-img" src="images/logo.svg" alt="">
                             </a>
                         </div>
                         <form class='main__wrapp-form main__form' action="/" method="get">
                             <input class='main__form-input' name="s" placeholder="Найти товар" type="search">
                             <button class='main__form-btn' type="submit">
-                                <img loading='lazy' src="images/search.svg" alt="">
+                                <img src="images/search.svg" alt="">
                             </button>
                         </form>
                     </div>
-                    <div class="main__wrapp-basket main__basket">
+                    <a href='cart.html' class="main__wrapp-basket main__basket">
                         <div class="main__basket-inner">
                             <img loading='lazy' class='main__basket-img' src="images/bytesize_cart.svg" alt="">
                             <span class='main__basket-text'>
@@ -821,47 +806,47 @@
                                 52 325 руб.
                             </p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="main__box ">
                     <div class="main__box-conteiner ">
-                        <a class="main__box-link " href="#">
+                        <a class="main__box-link " href="category.html">
                             <img loading='lazy' src="images/meat.png" alt="">
                             <h3 class="main__box-text">
                                 Мясо
                             </h3>
                         </a>
-                        <a class="main__box-link" href="#">
+                        <a class="main__box-link" href="category.html">
                             <img loading='lazy' src="images/seafood.png" alt="">
                             <h3 class="main__box-text">
                                 Морепродукты
                             </h3>
                         </a>
-                        <a class="main__box-link" href="#">
+                        <a class="main__box-link" href="category.html">
                             <img loading='lazy' src="images/img__main.png" alt="">
                             <h3 class="main__box-text">
                                 Все для курения
                             </h3>
                         </a>
-                        <a class="main__box-link" href="#">
+                        <a class="main__box-link" href="category.html">
                             <img loading='lazy' src="images/img__main-2.png" alt="">
                             <h3 class="main__box-text">
                                 Напитки
                             </h3>
                         </a>
-                        <a class="main__box-link" href="#">
+                        <a class="main__box-link" href="category.html">
                             <img loading='lazy' src="images/img__main-3.png" alt="">
                             <h3 class="main__box-text">
                                 Бакалея
                             </h3>
                         </a>
-                        <a class="main__box-link" href="#">
+                        <a class="main__box-link" href="category.html">
                             <img loading='lazy' src="images/img__main-4.png" alt="">
                             <h3 class="main__box-text">
                                 Снеки
                             </h3>
                         </a>
-                        <a class="main__box-link" href="#">
+                        <a class="main__box-link" href="category.html">
                             <img loading='lazy' src="images/img__main-5.png" alt="">
                             <h3 class="main__box-text">
                                 Специи и орехи
@@ -874,10 +859,10 @@
         <div class="bread tovar__bread">
             <div class="conteiner">
                 <ul class="breadcrumb">
-                    <li><a href="#">
+                    <li><a href="main">
                             Главная
                         </a></li>
-                    <li><a href="#">
+                    <li><a href="category.html">
                             Мясо
                         </a></li>
                     <li><a href="#">
@@ -1062,8 +1047,8 @@
                 <div class="footer__wrapp">
                     <div class="footer__wrapp-inner">
                         <div class="footer__logo">
-                            <a href="#" class="footer__logo-link">
-                                <img loading='lazy' class="footer__logo-img" src="images/footer-logo.svg" alt="">
+                            <a href="main.html" class="footer__logo-link">
+                                <img class="footer__logo-img" src="images/footer-logo.svg" alt="">
                             </a>
                         </div>
                         <p class="footer__wrapp-inner-text">
@@ -1076,27 +1061,27 @@
                         <nav class="footer__nav">
                             <ul class="footer__nav-list">
                                 <li class="footer__nav-inner">
-                                    <a href="#" class="footer__nav-link">
+                                    <a href="catalog.html" class="footer__nav-link">
                                         Каталог
                                     </a>
                                 </li>
                                 <li class="footer__nav-inner">
-                                    <a href="#" class="footer__nav-link">
+                                    <a href="sales.html" class="footer__nav-link">
                                         Акции
                                     </a>
                                 </li>
                                 <li class="footer__nav-inner">
-                                    <a href="#" class="footer__nav-link">
+                                    <a href="contacts.html" class="footer__nav-link">
                                         Контакты
                                     </a>
                                 </li>
                                 <li class="footer__nav-inner">
-                                    <a href="#" class="footer__nav-link">
+                                    <a href="about.html" class="footer__nav-link">
                                         О нас
                                     </a>
                                 </li>
                                 <li class="footer__nav-inner">
-                                    <a href="#" class="footer__nav-link">
+                                    <a href="delivery.html" class="footer__nav-link">
                                         Доставка и оплата
                                     </a>
                                 </li>

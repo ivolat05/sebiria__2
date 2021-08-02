@@ -11,13 +11,6 @@ $(function () {
         autoHideScrollbar: true
     });
 
-    $(".insta__wrapp").slick({
-        arrows: false,
-        slidesToShow: 6,
-        slidesToScroll: 1
-    });
 
-    document.addEventListener('touchstart', onTouchStart, {
-        passive: true
-    });
+
 });
